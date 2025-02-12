@@ -1,0 +1,16 @@
+{
+  "name": "custom-promise-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/js/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest --watchAll --noStackTrace"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
