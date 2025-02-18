@@ -120,6 +120,28 @@ class CustomPromise {
     static reject(reason) {
         return new CustomPromise((_, reject) => reject(reason));
     };
+
+    static all(promises) {
+        return new CustomPromise((resolve, reject) => {
+            const results = [];
+            let completed = 0;
+
+            if(promises.length === 0) {
+                resolve(results);
+            }
+
+            promises.forEach((promise, index) => {
+                promise.then((value) => {
+                    results[index] = value;
+                    completed++;
+
+                    if (completed === promises.length) {
+                        resolve(results);
+                    }
+                }).catch(reject);
+            });
+        });
+    };
 }
 
 const getPromise = (data) => {
